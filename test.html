@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" lang="es">
+  <title>Insert title here</title>
+  <!-- CSS only -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+
+  <link rel="stylesheet" href="css/modalStyle.css">
+</head>
+
+<body>
+  <section id="loginModal" th:fragment="loginModal" th:if="${privado == 1 and activo == 0}">
+
+    <!-- Modal -->
+    <div class="modal fade d-block show" id="welcomeModal" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-centered-container mx-auto" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+
+
+            <ul class="nav nav-tabs modalTabsContainer" id="myTab" role="tablist">
+              <li class="nav-item d-flex">
+                <a class="nav-link w-100 active" id="unlock-tab" data-toggle="tab" href="#unlock" role="tab"
+                  aria-controls="unlock" aria-selected="true">Obtén tu regalo</a>
+              </li>
+              <li class="nav-item d-flex">
+                <a class="nav-link w-100" id="login-tab" data-toggle="tab" href="#login" role="tab" aria-controls="login"
+                  aria-selected="false">Iniciar Sesión</a>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="unlock" role="tabpanel" aria-labelledby="unlock-tab">
+                <div id="alertDivLogin" class="alert alert-warning alertDiv"><strong class="divErrorMessage"></strong></div>
+                <form id="form" data-forms="floating-label" class="ml-form" th:action="@{${walletUrl} + '/validation'}"
+                  method="post">
+                  <fieldset class="ml-form-field">
+                    <i class="fas fa-envelope prefix grey-text"></i> <label>
+                      <input id="loginMail" type="text" name="fcEmailAsociado"
+                        onkeyup="this.setAttribute('value', this.value);" value="" required>
+                      <span>Correo electrónico *</span>
+                      <div id="loginErrorMessageMail" class="ml-form-field-errortext">Escribe un correo
+                        válido</div>
+                    </label>
+                  </fieldset>
+                  <fieldset class="ml-form-field">
+                    <i class="fas fa-envelope prefix grey-text"></i> <label>
+                      <input id="loginMailConfirm" type="text" onkeyup="this.setAttribute('value', this.value);"
+                        value="" required>
+                      <span>Confirma tu correo electrónico
+                        *</span>
+                      <div id="loginErrorMessageMailConfirm" class="ml-form-field-errortext">Los correos
+                        no
+                        coinciden</div>
+                    </label>
+                  </fieldset>
+                  <fieldset class="ml-form-field">
+                    <i class="fas fa-key prefix grey-text"></i> <label> <input id="tokenLogin" type="text"
+                        name="fcToken" onkeyup="this.setAttribute('value', this.value);" value="" required>
+                      <span>Ingresa tu número de
+                        llave *</span>
+                    </label>
+                  </fieldset>
+                  <div class="formFooter">
+                    <div>
+                      <span><input id="checkTerminosCondiciones" type="checkbox" name="" required></span><span><a
+                          th:href="@{/terminosycondiciones?t=2}">Acepto Términos y
+                          Condiciones</a><br></span>
+                    </div>
+                    <p class="ml-form-field-errortext terminosCondicionesError d-block"></p>
+                    <!--                     <button id="submitBtn" type="submit"
+                      class="col-12 btn btn-primary btn-submitModal mt-4">ENVIAR</button> -->
+                  </div>
+                </form>
+              </div>
+
+
+
+
+              <div class="tab-pane fade" id="login" role="tabpanel" aria-labelledby="login-tab">
+                 <div id="alertDivAccess" class="alert alert-warning alertDiv"><strong class="divErrorMessage"></strong></div>
+                <form id="form" data-forms="floating-label" class="ml-form" th:action="@{${walletUrl} + '/validation'}"
+                  method="post">
+                  <fieldset class="ml-form-field">
+                    <i class="fas fa-envelope prefix grey-text"></i> <label>
+                      <input id="loginMailAccess" class="accessMail" type="text" name="fcEmailAsociadoA"
+                        onkeyup="this.setAttribute('value', this.value);" value="" required>
+                      <span>Correo electrónico *</span>
+                    </label>
+                  </fieldset>
+                  <fieldset class="ml-form-field">
+                    <i class="fas fa-key prefix grey-text"></i> <label>
+                      <input id="tokenAccess" class="accessKey" type="text" name="fcTokenA"
+                        onkeyup="this.setAttribute('value', this.value);" value="" required> <span>Ingresa tu número de
+                        llave *</span>
+                    </label>
+                  </fieldset>
+                  <div class="formFooter">
+                    <div id="modalTyC" class="d-flex flex-column">
+                      <p class="ml-form-field-errortext terminosCondicionesError d-block"></p>
+                    </div>
+                </form>
+              </div>
+            </div>
+                      <div class="d-flex justify-content-center">
+            <button id="submitBtn" type="submit" class="col-9 btn btn-primary btn-submitModal">ENVIAR</button>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+
+ <script src="./modal.js"></script>
+
+
+</body>
+
+</html>

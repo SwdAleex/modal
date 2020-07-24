@@ -1,0 +1,241 @@
+
+  .modal-centered-container {
+    max-width: 365px;
+  }
+
+
+.modal.fade.show {
+  background-color: rgba(108, 117, 125, 0.5);
+}
+
+.modal-header {
+  background-color: #007bff;
+}
+
+.modal-title {
+  color: #fff;
+}
+
+
+/* *********TABS**********  */
+
+.modalTabsContainer {
+  justify-content: space-around;
+  border-bottom: 0;
+  margin-bottom: 3px;
+  font-size: 15px;
+}
+
+.modalTabsContainer .nav-item{
+  border: 0;
+  width: 50%;
+  border-radius: 10px 10px 0 0;
+  text-align: center;
+}
+
+.modalTabsContainer .nav-link {
+  color: #007bff;
+  background-color: transparent;
+  border: 0px;
+  border-bottom: 5px solid #b8b8b8b8;
+  -moz-transition: all 0.6s ease;
+  transition: all 0.6s ease;
+}
+
+.modalTabsContainer .nav-link.active {
+  color: #007bff;
+  background-color: transparent;
+  border: 0px;
+  border-bottom: 5px solid #007bff;
+}
+
+.modalTabsContainer .nav-link:hover {
+  color: #007bff;
+  border: 0px;
+  border-bottom: 5px solid #A2CC39;
+}
+
+
+
+/*  ****** Forms ****** */
+.ml-form {
+  padding: 20px;
+  position: relative;
+}
+
+.ml-form-field {
+  margin-bottom: 20px;
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  border: 0px;
+  padding: 0;
+}
+
+fieldset:nth-last-child(2) {
+  margin-bottom: 0;
+}
+
+.btn-submitModal {
+  background-color:#A2CC39;
+  border-color: #A2CC39;
+  border-radius: 1rem !important;
+  display: block;
+  min-width: 106px;
+  padding: 0.5rem;
+  font-size: .9rem;
+  line-height: 1rem;
+  font-family: sans-serif;
+  font-weight: 400;
+}
+
+.formFooter {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.7rem;
+  justify-content: center;
+}
+
+.formFooter div {
+  display: flex;
+  align-items: center;
+}
+
+.formFooter a {
+  text-decoration: none;
+}
+
+.formFooter p {
+  margin: 0;
+  min-height: 18px;
+  padding-left: 1.3rem;
+  visibility: visible;
+}
+
+.formFooter span:nth-last-child(2) {
+  display: inline-flex;
+  margin-right: 0.5rem;
+}
+
+/*  ****** Legend ****** */
+.ml-form-field legend {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 13px;
+  color: #333333;
+}
+
+/*  ****** Label ****** */
+.ml-form-field label {
+  position: relative;
+  display: block;
+  text-align: left;
+  font-size: 13px;
+  color: #333333;
+  min-height: 64px;
+}
+.ml-form-field label span {
+  display: inline;
+  padding: 5px 2px 2px 2px;
+}
+.prefix ~ label {
+  margin-left: 2.5rem;
+}
+.fas.prefix {
+  font-size: 2rem;
+  position: absolute;
+  top: 5px;
+}
+
+/*  ****** Form Field  ****** */
+.ml-form-field input {
+  padding: 10px;
+  font: inherit;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #757575;
+  font-size: 13px;
+  color: #333333;
+  width: 100%;
+  border-radius: 2px;
+}
+
+/*         .ml-form-field input:focus {
+        	border: solid 1px #007abc;
+        } */
+
+.ml-form-field input:focus + span {
+  color: #007bff;
+}
+
+.ml-form-field span {
+  background: #fff;
+  color: #007bff;
+}
+
+/* ******  Error   ****** */
+.ml-form-field-errortext {
+  display: none;
+  font-size: 12px;
+  color: #db1818;
+  margin-top: 5px;
+}
+
+/* ****** Form field Error input ******* */
+.ml-form-field.error input,
+.ml-form-field.error select {
+  border: solid 1px #db1818;
+  background-color: #fde8e8;
+}
+.ml-form-field.error input:focus,
+.ml-form-field.error select:focus {
+  background-color: #fff;
+}
+.ml-form-field.error input:focus + span,
+.ml-form-field.error select:focus + span {
+  background-color: #fff;
+  color: #db1818;
+}
+.ml-form-field.error span {
+  background-color: #fde8e8;
+  color: #db1818;
+}
+.ml-form-field.error .ml-form-field-errortext {
+  display: block;
+}
+
+/*  ******  Floating Label   ****** */
+.ml-form[data-forms="floating-label"] input + span,
+.ml-form[data-forms="floating-label"] input[value=""] + span {
+  transition: 0.3s ease;
+  -webkit-transform: translateY(-0.5em);
+  -ms-transform: translateY(-0.5em);
+  transform: translateY(-0.5em);
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-top: 13px;
+  font-size: 13px;
+  width: 90%;
+}
+.ml-form[data-forms="floating-label"] input:focus + span,
+.ml-form[data-forms="floating-label"] input:not([value=""]) + span {
+  -webkit-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  transform: translateY(-100%);
+  font-weight: bold;
+  font-size: 13px;
+  visibility: visible;
+  top: -5px;
+  margin-top: 13px;
+  width: auto;
+  background-color: #fff;
+  text-shadow: -4px 2px 0 0 #ffffff, 3px 0 1px 0 #ffffff, -2px 0 0 0 #ffffff,
+    -3px 1px 2px 0 #ffffff, 6px 0 0 0 #ffffff, 4px 2px 0 0 #ffffff,
+    1px 1px 0 0 #ffffff;
+}
